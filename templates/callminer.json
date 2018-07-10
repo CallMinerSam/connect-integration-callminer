@@ -119,7 +119,14 @@
                                 "AWS": {
                                     "Fn::Sub": "arn:aws:iam::${TrustedAccount}:root"
                                 }
-                            }
+                            },
+							"Condition": {
+								"StringEquals": {
+									"sts:ExternalId": {
+										"Fn::Sub": "${ExternalId}"
+									}
+								}
+							}
                         }
                     ]
                 },
